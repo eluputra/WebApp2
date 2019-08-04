@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LuckyPaw.Models.PricingModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.image_url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image_url)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.priceID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.priceID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.priceID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
