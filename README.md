@@ -6,7 +6,7 @@ eluputra@hotmail.com
 ASP.Net program for TCSS 431
 
 I complete rebuild from the WebApp 1 and following the book instead of tutorial.
-If you want to know what I am planing to do open the PDF of "Plan of LUCKY PAW web READ ME".
+If you want to know what I am planing to do open the PDF of "Plan LUCKY PAW web READ ME".
 
 In this part of program i have made the database for
  
