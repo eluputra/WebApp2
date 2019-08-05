@@ -8,7 +8,7 @@ namespace LuckyPaw.Models
         [Key]
         public int TrainingId { get; set; }
 
-        public int DogId { get; set; }
+        public string DogId { get; set; }
 
         public string TrainerName { get; set; }
 

@@ -10,9 +10,11 @@ namespace LuckyPaw.Data
     public class LuckyPawContext : DbContext
     {
 
-        public DbSet<LuckyPaw.Models.PricingModel> PricingModel { get; set; }
+        public DbSet<LuckyPaw.Models.PricingPuppyModel> PricingPuppyModel { get; set; }
 
         public DbSet<LuckyPaw.Models.TrainingDogModel> TrainingDogModel { get; set; }
+
+        public DbSet<LuckyPaw.Models.TrainingServicesPriceModel> TrainingServicesPriceModel { get; set; }
 
         public LuckyPawContext(DbContextOptions<LuckyPawContext> options)
             : base(options)
@@ -21,9 +23,11 @@ namespace LuckyPaw.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // this code for building the model 
         {
-            modelBuilder.Entity<PricingModel>().ToTable("Price");
-            modelBuilder.Entity<TrainingDogModel>().ToTable("Training");
+            modelBuilder.Entity<PricingPuppyModel>().ToTable("PricePuppy");
+            modelBuilder.Entity<TrainingDogModel>().ToTable("TrainingDog");
+            modelBuilder.Entity<TrainingServicesPriceModel>().ToTable("TrainingServicesPrice");
         }
+
 
     }
 }

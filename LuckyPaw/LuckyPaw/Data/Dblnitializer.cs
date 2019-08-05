@@ -13,69 +13,107 @@ namespace LuckyPaw.Data
             context.Database.EnsureCreated();
 
             // Look for any prices.
-            if (context.PricingModel.Any())
+            if (context.PricingPuppyModel.Any())
             {
                 return;   // DB has been seeded
             }
             
-            var prices = new PricingModel[]
+            var pricesPuppyArr = new PricingPuppyModel[]
             {
-                new PricingModel { PriceDesc = "Test1",   price = 100,
-                    image_url = "https:\\www.google.com" },
-                new PricingModel { PriceDesc = "Test2",   price = 200,
-                    image_url = "https:\\www.google.com" },
-                new PricingModel { PriceDesc = "Test3",   price = 300,
-                    image_url = "https:\\www.google.com" },
-                new PricingModel { PriceDesc = "Test4",   price = 400,
-                    image_url = "https:\\www.google.com" },
-                new PricingModel { PriceDesc = "Test5",   price = 500,
-                    image_url = "https:\\www.google.com" },
-                new PricingModel { PriceDesc = "Test6",   price = 600,
-                    image_url = "https:\\www.google.com" },
-                new PricingModel { PriceDesc = "Test7",   price = 700,
-                    image_url = "https:\\www.google.com" },
-                new PricingModel { PriceDesc = "Test8",   price = 800,
-                    image_url = "https:\\www.google.com" }
+                new PricingPuppyModel { PricePuppyDesc = "Test1",   pricePuppy = 100,
+                    pricePuppyImageUrl = "https:\\www.google.com" },
+                new PricingPuppyModel { PricePuppyDesc = "Test2",   pricePuppy = 200,
+                    pricePuppyImageUrl = "https:\\www.google.com" },
+                new PricingPuppyModel { PricePuppyDesc = "Test3",   pricePuppy = 300,
+                    pricePuppyImageUrl = "https:\\www.google.com" },
+                new PricingPuppyModel { PricePuppyDesc = "Test4",   pricePuppy = 400,
+                    pricePuppyImageUrl = "https:\\www.google.com" },
+                new PricingPuppyModel { PricePuppyDesc = "Test5",   pricePuppy = 500,
+                    pricePuppyImageUrl = "https:\\www.google.com" },
+                new PricingPuppyModel { PricePuppyDesc = "Test6",   pricePuppy = 600,
+                    pricePuppyImageUrl = "https:\\www.google.com" },
+                new PricingPuppyModel { PricePuppyDesc = "Test7",   pricePuppy = 700,
+                    pricePuppyImageUrl = "https:\\www.google.com" },
+                new PricingPuppyModel { PricePuppyDesc = "Test8",   pricePuppy = 800,
+                    pricePuppyImageUrl = "https:\\www.google.com" }
             };
 
-            foreach (PricingModel pModel in prices)
+            foreach (PricingPuppyModel pPuppyModel in pricesPuppyArr)
             {
-                context.PricingModel.Add(pModel);
+                context.PricingPuppyModel.Add(pPuppyModel);
+            }
+
+            context.SaveChanges();
+            
+            // TrainingId cannot be the same because trainingId is the key, so
+            // if you make trainingId the same, there would be a database seed error
+            // For the TrainingId, you cannot set values for this column because it is a primary key, it auto increments
+            var trainingArr = new TrainingDogModel[]
+            {
+                new TrainingDogModel { DogId = "Mark",
+                    TrainerName = "Evan", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" },
+                new TrainingDogModel { DogId = "Andy",
+                    TrainerName = "Anthony", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" },
+                new TrainingDogModel { DogId = "William",
+                    TrainerName = "John", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" },
+                new TrainingDogModel { DogId = "Michael",
+                    TrainerName = "William", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" },
+                new TrainingDogModel { DogId = "Ronnie",
+                    TrainerName = "Romeo", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" },
+                new TrainingDogModel { DogId = "Getrude",
+                    TrainerName = "Robert", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" },
+                new TrainingDogModel { DogId = "Sen",
+                    TrainerName = "Lynda", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" },
+                new TrainingDogModel { DogId = "Ten",
+                    TrainerName = "Jesus", GraduationDate = DateTime.Parse("03-11-1995"),
+                    TrainingType = "Manual" }
+            };
+
+            foreach (TrainingDogModel trainingDog in trainingArr)
+            {
+                context.TrainingDogModel.Add(trainingDog);
             }
 
             context.SaveChanges();
 
-            var training = new TrainingDogModel[]
+            var trainingServicesPriceArr = new TrainingServicesPriceModel[]
             {
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "Evan", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" },
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "Anthony", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" },
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "John", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" },
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "William", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" },
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "Romeo", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" },
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "Robert", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" },
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "Lynda", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" },
-                new TrainingDogModel { TrainingId = 111,   DogId = 100,
-                    TrainerName = "Jesus", GraduationDate = DateTime.Parse("1995-03-11"),
-                    TrainingType = "Manual" }
+                new TrainingServicesPriceModel { trainingName = "Train1",
+                    priceTraining = 3000, trainingDesc = "Train1Desc"
+                    },
+                new TrainingServicesPriceModel { trainingName = "Train2",
+                    priceTraining = 4000, trainingDesc = "Train2Desc"
+                    },
+                new TrainingServicesPriceModel { trainingName = "Train3",
+                    priceTraining = 5000, trainingDesc = "Train3Desc"
+                    },
+                new TrainingServicesPriceModel { trainingName = "Train4",
+                    priceTraining = 6000, trainingDesc = "Train4Desc"
+                    },
+                new TrainingServicesPriceModel { trainingName = "Train5",
+                    priceTraining = 7000, trainingDesc = "Train5Desc"
+                    },
+                new TrainingServicesPriceModel { trainingName = "Train6",
+                    priceTraining = 8000, trainingDesc = "Train6Desc"
+                    },
+                new TrainingServicesPriceModel { trainingName = "Train7",
+                    priceTraining = 9000, trainingDesc = "Train7Desc"
+                    },
+                new TrainingServicesPriceModel { trainingName = "Train8",
+                    priceTraining = 10000, trainingDesc = "Train8Desc"
+                    }
             };
 
-            foreach (TrainingDogModel trainingDog in training)
+            foreach (TrainingServicesPriceModel trainingServicesPrice in trainingServicesPriceArr)
             {
-                context.TrainingDogModel.Add(trainingDog);
+                context.TrainingServicesPriceModel.Add(trainingServicesPrice);
             }
 
             context.SaveChanges();

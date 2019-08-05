@@ -1,0 +1,44 @@
+﻿@model LuckyPaw.Models.PricingPuppyModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PricingPuppyModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="pricePuppyID" />
+            <div class="form-group">
+                <label asp-for="PricePuppyDesc" class="control-label"></label>
+                <input asp-for="PricePuppyDesc" class="form-control" />
+                <span asp-validation-for="PricePuppyDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pricePuppy" class="control-label"></label>
+                <input asp-for="pricePuppy" class="form-control" />
+                <span asp-validation-for="pricePuppy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pricePuppyImageUrl" class="control-label"></label>
+                <input asp-for="pricePuppyImageUrl" class="form-control" />
+                <span asp-validation-for="pricePuppyImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
